@@ -35,12 +35,12 @@ class MyApp extends StatelessWidget {
     );
   }
   void getSharedValue ()async{
-    final prefs = await SharedPreferences.getInstance();
-    settingProvider.changeLanguage(prefs.getString('lang')?? 'ar');
+    final pref = await SharedPreferences.getInstance();
+    settingProvider.changeLanguage(pref.getString('lang')?? 'ar');
 
-    if(prefs.getString('them')=='light'){
+    if(pref.getString('them')=='light'){
       settingProvider.changeTheme(ThemeMode.light);
-    } else if(prefs.getString('them')=='dark'){
+    } else if(pref.getString('them')=='dark'){
       settingProvider.changeTheme(ThemeMode.dark);
     }
   }
